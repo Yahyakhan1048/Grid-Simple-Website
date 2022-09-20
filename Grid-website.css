@@ -1,0 +1,188 @@
+:root {
+    --primary: #ddd;
+    --dark: #333;
+    --light: #fff;
+    --shadow: 0 1px 5px rgba(104, 104, 104, 0.8);
+}
+html {
+    box-sizing: border-box;
+    color: var(--dark);
+    font-family: Arial, Helvetica, sans-serif;
+}
+body{
+    background-color: #ccc;
+    margin: 30px 50px;
+    line-height: 1.5;
+}
+.btn {
+    background-color: var(--dark);
+    color: var(--light);
+    padding: 0.6rem 1.3rem;
+    text-decoration: none;
+    border: 0;
+}
+img{
+    max-width: 100%;
+}
+
+.wrapper {
+    display: grid;
+    grid-gap: 20px;
+}
+/* Main navigation */
+
+.look ul {
+    display: grid;
+    list-style: none;
+    grid-gap: 20px;
+    padding: 0;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.look li {
+    display: block;
+    text-decoration: none;
+    background: var(--primary);
+    padding: 0.8rem;
+    text-align: center;
+    color: var(--dark);
+    text-transform: uppercase;
+    font-size: 1.1rem;
+    box-shadow: var(--shadow);
+}
+
+.look li:hover {
+    background-color: var(--dark);
+    color: var(--light);
+}
+
+/* To Container */
+
+.top-container {
+    display: grid;
+    grid-gap: 20px;
+    grid-template-areas: 
+    'showcase showcase top-box-a'
+    'showcase showcase top-box-b';
+}
+
+/*    ShowCase Area */
+
+.showcase {
+    grid-area: showcase;
+    min-height: 400px;
+    background: url(BackGround-P.jpg) no-repeat center center/cover;
+    background-position: center;
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: start;  /*   Decrease the size of the button background  */
+    justify-content: center;
+    box-shadow: var(--shadow);
+    
+}
+
+.showcase h1{
+    font-size: 4rem;
+    margin-bottom: 0;
+    color: var(--light);
+}
+.showcase p{
+    font-size: 1.3rem;
+    margin-top: 0;
+    color: var(--light);
+}
+/*   Top Box */
+.top-box {
+    display: grid;
+    background-color: var(--primary);
+    justify-items: center;
+    align-items: center;
+    padding: 1.5rem;
+    box-shadow: var(--shadow);
+}
+.top-box .price{
+    font-size: 2.5rem;
+}
+.top-box-a {
+    grid-area: top-box-a;
+}
+
+.top-box-b {
+    grid-area: top-box-b;
+}
+
+/* Boxes */
+.boxes {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-gap: 20px;
+}
+.box {
+    background-color: var(--primary);
+    text-align: center;
+    box-shadow: var(--shadow);
+    padding: 1.5rem 2rem;
+}
+/* Info Phase */
+.info {
+    background-color: var(--primary);
+    box-shadow: var(--shadow);
+    display: grid;
+    grid-gap: 30px;
+    padding: 3rem;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+/* Portfoilo */
+.portfolio {
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+.portfolio img{
+    box-shadow: var(--shadow);
+    width: 100%;
+}
+
+/* Footer */
+footer {
+    margin-top: 2rem;
+    background-color: var(--dark);
+    color: var(--light);
+    padding: 1rem;
+    text-align: center;
+}
+
+/* Media Queries */
+
+@media (max-width: 700px) {
+    .top-container {
+        grid-template-areas: 
+        'showcase showcase'
+        'top-box-a top-box-b';
+    }
+    .showcase h1 {
+        font-size: 2.5rem;
+    }
+    .look ul {
+        grid-template-columns: 1fr;
+    }
+    .info {
+        grid-template-columns: 1fr;
+    }
+    .info .btn {
+        display: block;
+        margin: auto;
+        text-align: center;
+    }
+}
+
+@media (max-width: 500px) {
+    .top-container {
+        grid-template-areas: 
+        'showcase'
+        'top-box-a'
+        'top-box-b';
+    }
+}
